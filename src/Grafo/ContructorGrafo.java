@@ -7,18 +7,18 @@ import java.lang.RuntimeException;
   
 public class ContructorGrafo {
     
-private final int MAXIMO_VERTICES;
-private final int MAXIMO_ARISTAS;
-private int aristas;
-private int grafitoMatriz[][];
-//private int cantTrenes;
-    
+    private final int MAXIMO_VERTICES; // Número máximo de vértices en el grafo
+    private final int MAXIMO_ARISTAS; // Número máximo de aristas en el grafo
+    private int aristas; // Número actual de aristas en el grafo
+    private int grafitoMatriz[][]; // Matriz de adyacencia que representa el grafo
+// Constructor que inicializa el grafo con el número de caminos y ciudades   
 public ContructorGrafo(int caminos,int ciudades)
-{    
+{   	
     this.aristas = 0;
     MAXIMO_VERTICES = ciudades;
     MAXIMO_ARISTAS = caminos; 
     grafitoMatriz = new int[MAXIMO_VERTICES][MAXIMO_VERTICES];
+   // Inicializa la matriz de adyacencia con ceros (sin aristas)
     for (int i = 0; i < getMAX_VERTICES(); i++) 
     {
         for (int j = 0; j < getMAX_VERTICES(); j++)
@@ -27,12 +27,12 @@ public ContructorGrafo(int caminos,int ciudades)
         }
     }
 }
-
+// Constructor que inicializa el grafo con el número de ciudades (asume caminos = ciudades)
 public ContructorGrafo(int ciudades)
 {
 this(ciudades, ciudades);
 }
-
+// Métodos para obtener el número máximo de vértices y aristas
 public int getMAX_VERTICES() {
 return MAXIMO_VERTICES;
 }
@@ -60,7 +60,7 @@ throw new ArrayIndexOutOfBoundsException(
 } else if (aristas == MAXIMO_ARISTAS) {
 throw new UnsupportedOperationException("No se puede añadir más aristas");
 } else {
-grafitoMatriz[v1][v2] = dist;
+grafitoMatriz[v1][v2] = dist;// Inserta la arista en la matriz de adyacencia
 }
 }
 /**
